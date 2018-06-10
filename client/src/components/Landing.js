@@ -18,15 +18,17 @@ class Landing extends Component {
 
   renderMovies = () => {
     return this.state.movies.map(movie => {
-      return <Movie key={movie.id} {...movie}/>;
+      return <Movie key={movie.id} {...movie} />;
     });
   };
 
   render() {
+    console.log(this.state.movies);
+
     return (
       <Container>
-        <Header as='h2'>Popular Movies</Header>
-        <Card.Group itemsPerRow={4} doubling>
+        <Header as="h2">Popular Movies</Header>
+        <Card.Group itemsPerRow={6} doubling>
           {this.renderMovies()}
         </Card.Group>
       </Container>

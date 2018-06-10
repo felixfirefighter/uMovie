@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
+import "./App.css";
+
 import Heading from "./components/Heading";
 import Landing from "./components/Landing";
-import MovieDetail from "./components/MovieDetail";
+import MovieDetailContainer from "./components/MovieDetailContainer";
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.params = {};
@@ -19,7 +21,7 @@ class App extends Component {
             <Heading />
             <Switch>
               <Route exact path="/" component={Landing} />
-              <Route exact path="/movie/:id" component={MovieDetail} />
+              <Route exact path="/movie/:id" component={MovieDetailContainer} />
             </Switch>
           </div>
         </Router>

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Card, Dimmer, Image, Rating } from "semantic-ui-react";
+import { Card, Dimmer, Image, Rating, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-import { WIDTH_342 } from "../constants";
-import {constructImageUrl} from '../utils/movieHelper'
+import { WIDTH_185 } from "../constants";
+import { constructImageUrl } from "../utils/movieHelper";
 
 class Movie extends Component {
   state = {
@@ -24,7 +24,7 @@ class Movie extends Component {
 
   render() {
     const { active } = this.state;
-    const { title, vote_average, id } = this.props;
+    const { title, vote_average, id, release_date } = this.props;
     const rating = Math.round(vote_average) / 2;
 
     return (
@@ -34,10 +34,19 @@ class Movie extends Component {
         onMouseLeave={this.handleOnMouseLeave}
       >
         <Link to={`/movie/${id}`}>
-          <Image src={constructImageUrl(WIDTH_342, this.props.poster_path)} />
+          <Image src={constructImageUrl(WIDTH_185, this.props.poster_path)} />
           <Dimmer active={active}>
-            <h1>{title}</h1>
-            <Rating maxRating={5} defaultRating={rating} icon="star" disabled />
+            <Header as="h3" style={{ color: "white" }}>
+              {title}
+            </Header>
+            <Rating
+              maxRating={rating}
+              defaultRating={rating}
+              icon="star"
+              disabled
+              style={{ marginBottom: "8px" }}
+            />
+            <p>{release_date}</p>
           </Dimmer>
         </Link>
       </Card>
