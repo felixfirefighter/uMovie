@@ -25,7 +25,8 @@ class MovieCarousel extends Component {
       // dots: true,
       speed: 500,
       slidesToShow: this.props.slides,
-      slidesToScroll: this.props.slides
+      slidesToScroll: this.props.slides,
+      infinite: false
     };
 
     return <Slider {...settings}>{this.renderVideos()}</Slider>;

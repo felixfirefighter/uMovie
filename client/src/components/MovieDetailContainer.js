@@ -53,7 +53,7 @@ class MovieDetailContainer extends Component {
 
         <Header as="h3">Videos</Header>
         <Divider />
-        <VideoCarousel videos={this.state.videos} slides={4} />
+        <VideoCarousel videos={this.state.videos} slides={2} />
 
         <Header as="h3">Similar Movies</Header>
         <Divider />

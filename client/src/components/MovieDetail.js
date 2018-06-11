@@ -69,8 +69,6 @@ class MovieDetail extends Component {
           <p>Vote by {movie.vote_count} people</p>
           <p>{movie.overview}</p>
 
-          <Header as="h3">Videos</Header>
-
           <a href={movie.homepage} target="_blank" rel="noopener noreferrer">
             <Button
               color="black"
