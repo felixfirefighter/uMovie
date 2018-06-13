@@ -63,8 +63,8 @@ class Heading extends Component {
                 fluid
                 input={{ fluid: true }}
                 onResultSelect={this.handleResultSelect}
-                onSearchChange={_.debounce(this.handleSearchChange, 1000, {
-                  leading: true
+                onSearchChange={_.debounce(this.handleSearchChange, 500, {
+                  leading: false
                 })}
                 results={this.state.results}
               />

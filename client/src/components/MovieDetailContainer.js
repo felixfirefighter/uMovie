@@ -10,25 +10,28 @@ class MovieDetailContainer extends Component {
     loading: true,
     movie: {},
     videos: [],
-    similarMovies: []
+    similarMovies: [],
+    recommendedMovies: []
   };
 
-  async fetchData() {
+  fetchData = async () => {
     const { id } = this.props.match.params;
 
     this.setState({ loading: true });
 
     const movie = await axios.get(`/movie/${id}`);
     const similarMovies = await axios.get(`/movie/${id}/similar`);
+    const recommendedMovies = await axios.get(`/movie/${id}/recommendations`);
     const videos = await axios.get(`/movie/${id}/videos`);
 
     this.setState({
       loading: false,
       movie: movie.data,
       similarMovies: similarMovies.data.results,
+      recommendedMovies: recommendedMovies.data.results,
       videos: videos.data.results
     });
-  }
+  };
 
   componentDidMount() {
     this.fetchData();
@@ -43,10 +46,6 @@ class MovieDetailContainer extends Component {
   }
 
   render() {
-    console.log(this.state.movie);
-    console.log(this.state.similarMovies);
-    console.log(this.state.videos);
-
     return (
       <Container style={{ marginBottom: "16px" }}>
         <MovieDetail movie={this.state.movie} loading={this.state.loading} />
@@ -58,6 +57,10 @@ class MovieDetailContainer extends Component {
         <Header as="h3">Similar Movies</Header>
         <Divider />
         <MovieCarousel movies={this.state.similarMovies} slides={6} />
+
+        <Header as="h3">Recommended</Header>
+        <Divider />
+        <MovieCarousel movies={this.state.recommendedMovies} slides={6} />
       </Container>
     );
   }

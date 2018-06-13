@@ -21,7 +21,7 @@ class MovieDetail extends Component {
 
     if (loading) {
       return (
-        <Dimmer active inverted>
+        <Dimmer active page inverted>
           <Loader inverted>Loading</Loader>
         </Dimmer>
       );

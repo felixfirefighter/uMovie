@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import Video from "./Video";
-// import {Embed} from 'semantic-ui-react';
 import { constructThumbnailUrl } from "../utils/movieHelper";
 
 class MovieCarousel extends Component {
