@@ -10,7 +10,7 @@ import MovieDetailContainer from "./components/MovieDetailContainer";
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.params = {};
-axios.defaults.params["api_key"] = process.env.MOVIE_API_KEY;
+axios.defaults.params["api_key"] = "9c2b2981608f11ad4986008d1921815b";
 
 class App extends Component {
   render() {
