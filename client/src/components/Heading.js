@@ -1,16 +1,8 @@
 import React, { Component } from "react";
 import _ from "lodash";
-import {
-  Header,
-  Container,
-  Divider,
-  Grid,
-  Image,
-  Search
-} from "semantic-ui-react";
+import { Header, Container, Divider, Grid, Search } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
-import Logo from "../img/tmdb-logo.svg";
 import { WIDTH_92 } from "../constants";
 import { constructImageUrl } from "../utils/movieHelper";
 
@@ -28,8 +20,6 @@ class Heading extends Component {
   handleSearchChange = async (e, { value }) => {
     const res = await axios.get(`/search/movie?query=${encodeURI(value)}`);
 
-    console.log(res.data.results);
-
     if (res.data && res.data.results) {
       const results = res.data.results.map(movie => {
         return {
@@ -45,8 +35,6 @@ class Heading extends Component {
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <Container style={{ paddingTop: "24px" }}>
         <Grid>
