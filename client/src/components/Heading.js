@@ -59,8 +59,6 @@ class Heading extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-
-        <Divider />
       </Container>
     );
   }
